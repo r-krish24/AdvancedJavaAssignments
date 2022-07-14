@@ -1,0 +1,40 @@
+1) ID, last_name, email, phone number, hire date, Salary can't be blank
+2) check if email ID has proper format
+	1) If not properly formatted report as bad records
+	2) If it doent contain @, then add the email with @abc.com
+	3) Length should be limited to 50 chars
+
+3) Phone number 
+	1) Shouldnt be blank
+	2) Length should be 10 characters
+	3) It should contain only numbers 
+	4) . position 4th & 8th
+
+4) Hire date 
+	1) DD-MM-YYYY format 
+
+JOB ID
+	1) Should be referenced to another table
+Salary
+	1) Can be a number only and can't be 0 or -ve
+Manager ID
+	1) If it id blank, insert with A1
+
+
+3 tables : 
+employee - Similar to CSV file, add created_date - defaulted to current timestamp
+employee_failed - Similar to csv file, add created_date - defaulted to current timestamp
+employee_job - JobID & Job_description
+Department - dept_id, dept_desc
+ID: 10, 20, 30,...., 110
+desc: Sales, IT, ADM,.......
+
+1) success - 
+ID , Name, email, Job Description, Manager Name, Department Name
+
+
+2) Failed 
+ID , Name, email, Job Description, Manager Name, Department Name
+
+
+

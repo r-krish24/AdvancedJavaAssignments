@@ -1,0 +1,4 @@
+2022-07-14 12:15:44 pm [Thread: main][ Class:logging.Main >> Method: logging.Main.main(Main.java:21) ]
+WARN:This is Error Log
+2022-07-14 12:15:44 pm [Thread: main][ Class:logging.Main >> Method: logging.Main.main(Main.java:22) ]
+ERROR:THis is Error Log
