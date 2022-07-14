@@ -9,9 +9,14 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
+
+
 
 public class Main {
 	
+	public static Logger logger = Logger.getLogger(Main.class.getName());
 	public static void main(String args[])
 	  {
 		File file = new File("C:\\Users\\ramkrishnane\\eclipse-workspace\\AdvanceJavaPractises\\File\\employee.csv");
@@ -26,7 +31,7 @@ public class Main {
 				insertIntoDB(sc.nextLine());
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("Exception->"+e);
+			Main.logger.error("Exception->"+e);
 			e.printStackTrace();
 		}
 		
@@ -48,7 +53,7 @@ public class Main {
 				out.newLine();
 			}
 			out.close();
-			System.out.println("Success Report generated!");
+			Main.logger.info("Success Report generated!");
 			
 			out = new BufferedWriter(new FileWriter(failure_file));
 			out.write("EmployeeID,Name,Email,Job Description,Department Name,Manager Name");
@@ -59,12 +64,12 @@ public class Main {
 				out.newLine();
 			}
 			out.close();
-			System.out.println("Failure Report generated!");
+			Main.logger.info("Failure Report generated!");
 			
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception->"+e);
+			Main.logger.error("Exception->"+e);
 		}
 	  }
 	//EMPLOYEE_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,DEPARTMENT_ID

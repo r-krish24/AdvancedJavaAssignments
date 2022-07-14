@@ -28,7 +28,7 @@ public class DBConnection {
 			{
 				query = "Insert into EmployeeDetails_Failed values('"+ed.getEmployee_Id()+"','"+ed.getEmployee_Name()+"','"+ed.getEmail()+"','"+ed.getPhone_number()+"','"+ed.getHire_Date()+"','"+ed.getJob_Id()+"','"+ed.getSalary()+"','"+ed.getCommission_Pct()+"','"+ed.getManager_Id()+"','"+ed.getDepartment_Id()+"',"+"getDate()"+")";
 			}
-			System.out.println("Insert Query ->"+query);
+			Main.logger.info("Insert Query ->"+query);
 			try(Connection conn = DriverManager.getConnection(url))
 				{
 				PreparedStatement stmt = conn.prepareStatement(query);
@@ -38,14 +38,14 @@ public class DBConnection {
 				}
 			catch(SQLException e)
 			{
-			System.out.println("Connection failed!");
+			Main.logger.error("Connection failed!");
 			e.printStackTrace();
 			}
 			
 		}
 		catch(Exception e)
 		{
-		System.out.println("Connection failed!");
+		Main.logger.error("Connection failed!");
 		e.printStackTrace();
 		}
 	}
@@ -95,7 +95,7 @@ public class DBConnection {
 		}
 		catch(SQLException e)
 		{
-		System.out.println("Connection failed!");
+		Main.logger.error("Connection failed!");
 		e.printStackTrace();
 		}
 		return erList;
@@ -109,15 +109,15 @@ public class DBConnection {
 		{
 			PreparedStatement stmt = conn.prepareStatement(query1);
 			stmt.executeUpdate();
-			System.out.println("Old Records from EmployeeDetails deleted!");
+			Main.logger.info("Old Records from EmployeeDetails deleted!");
 			stmt = conn.prepareStatement(query2);
 			stmt.executeUpdate();
-			System.out.println("Old Records from EmployeeDetails_failed deleted!");
+			Main.logger.info("Old Records from EmployeeDetails_failed deleted!");
 			conn.close();
 		}
 		catch(SQLException e)
 		{
-			System.out.println("Connection failed!");
+			Main.logger.error("Connection failed!");
 			e.printStackTrace();
 		}
 	}
